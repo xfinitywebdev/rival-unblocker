@@ -69,7 +69,7 @@
   function performSearch() {
     var query = document.getElementById('searchInput').value.trim();
     if (query !== '') {
-      var searchUrl = 'https://www.google.com/search?q=inurl:https://xfinitywebdev.github.io/rival-unblocker/' + encodeURIComponent(query);
+      var searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
       window.location.href = searchUrl;
     }
   }
