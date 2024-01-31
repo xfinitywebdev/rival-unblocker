@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rival Unblocker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .search-container {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .search-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="search-container">
+  <input id="searchInput" type="text" class="search-input" placeholder="Search...">
+  <button id="searchButton" class="search-button">
+    <img src="search.png" alt="Search" width="20">
+  </button>
+</div>
+
+<script>
+  document.getElementById('searchButton').addEventListener('click', function() {
+    var query = document.getElementById('searchInput').value.trim();
+    if (query !== '') {
+      var searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+      window.location.href = searchUrl;
+    }
+  });
+</script>
+
+</body>
+</html>
