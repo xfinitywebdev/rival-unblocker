@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(black,rgb(61, 0, 61));
+    background: url("/background.png");
     background-attachment: fixed;
 }
 
