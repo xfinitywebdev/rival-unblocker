@@ -56,34 +56,11 @@
 <body>
 
 <h1>Rival Unblocker</h1>
+  <hr>
 
-<div class="search-container">
-  <input id="searchInput" type="text" class="search-input" placeholder="Search...">
-  <button id="searchButton" class="search-button">
-    <img src="search.png" alt="Search" width="20">
-  </button>
-</div>
-
-<script>
-  // Function to perform search
-  function performSearch() {
-    var query = document.getElementById('searchInput').value.trim();
-    if (query !== '') {
-      var searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
-      window.location.href = searchUrl;
-    }
-  }
-
-  // Event listener for clicking the search button
-  document.getElementById('searchButton').addEventListener('click', performSearch);
-
-  // Event listener for pressing Enter key in the input field
-  document.getElementById('searchInput').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      performSearch();
-    }
-  });
+<script async src="https://cse.google.com/cse.js?cx=27f8943714a10407c">
 </script>
+<div class="gcse-search"></div>
 
 </body>
 </html>
