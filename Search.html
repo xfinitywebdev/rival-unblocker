@@ -7,13 +7,19 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: url('background.png');
+    background-image: url('background.png');
     background-size: cover;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333; /* Adjust the color as needed */
   }
 
   .search-container {
@@ -48,6 +54,8 @@
 </head>
 <body>
 
+<h1>Rival Unblocker</h1>
+
 <div class="search-container">
   <input id="searchInput" type="text" class="search-input" placeholder="Search...">
   <button id="searchButton" class="search-button">
@@ -56,11 +64,22 @@
 </div>
 
 <script>
-  document.getElementById('searchButton').addEventListener('click', function() {
+  // Function to perform search
+  function performSearch() {
     var query = document.getElementById('searchInput').value.trim();
     if (query !== '') {
-      var searchUrl = 'https://www.google.com/search?q=inurl:' + encodeURIComponent(query);
+      var searchUrl = 'https://www.google.com/search?q=inurl:test.com/' + encodeURIComponent(query);
       window.location.href = searchUrl;
+    }
+  }
+
+  // Event listener for clicking the search button
+  document.getElementById('searchButton').addEventListener('click', performSearch);
+
+  // Event listener for pressing Enter key in the input field
+  document.getElementById('searchInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      performSearch();
     }
   });
 </script>
