@@ -7,7 +7,8 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: url('background.png');
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +59,7 @@
   document.getElementById('searchButton').addEventListener('click', function() {
     var query = document.getElementById('searchInput').value.trim();
     if (query !== '') {
-      var searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+      var searchUrl = 'https://www.google.com/search?q=inurl:test.com/' + encodeURIComponent(query);
       window.location.href = searchUrl;
     }
   });
