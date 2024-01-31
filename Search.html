@@ -59,7 +59,7 @@
   document.getElementById('searchButton').addEventListener('click', function() {
     var query = document.getElementById('searchInput').value.trim();
     if (query !== '') {
-      var searchUrl = 'https://www.google.com/search?q=inurl:test.com/' + encodeURIComponent(query);
+      var searchUrl = 'https://www.google.com/search?q=inurl:' + encodeURIComponent(query);
       window.location.href = searchUrl;
     }
   });
