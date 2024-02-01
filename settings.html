@@ -53,6 +53,13 @@
   .setting-item {
     margin-bottom: 10px;
   }
+
+  .back-button {
+    margin-top: 10px;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+  }
 </style>
 </head>
 <body>
@@ -64,6 +71,7 @@
       <label for="cloakingCheckbox">Cloaking:</label>
       <input type="checkbox" id="cloakingCheckbox">
     </div>
+    <div class="back-button" onclick="goBack()">Back</div>
   </div>
 </div>
 
@@ -79,27 +87,18 @@
   cloakingCheckbox.addEventListener('change', function() {
     if (this.checked) {
       // Enable cloaking
-      // You can add your cloaking functionality here
+      window.open('about:blank', '_blank');
       alert('Cloaking enabled!');
     } else {
       // Disable cloaking
-      // You can add your cloaking disabling functionality here
       alert('Cloaking disabled!');
     }
   });
 
-  // Cloaking checker function
-  function checkCloakingStatus() {
-    var isCloakingEnabled = cloakingCheckbox.checked;
-    if (isCloakingEnabled) {
-      alert('Cloaking is enabled!');
-    } else {
-      alert('Cloaking is disabled!');
-    }
+  // Function to go back
+  function goBack() {
+    window.history.back();
   }
-
-  // Example usage: check cloaking status on page load
-  checkCloakingStatus();
 </script>
 
 </body>
