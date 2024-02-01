@@ -87,17 +87,18 @@
   cloakingCheckbox.addEventListener('change', function() {
     if (this.checked) {
       // Enable cloaking
-      window.open('about:blank', '_blank');
+      document.title = 'Blank Page';
       alert('Cloaking enabled!');
     } else {
       // Disable cloaking
+      document.title = 'Settings - Rival Unblocker';
       alert('Cloaking disabled!');
     }
   });
 
   // Function to go back
   function goBack() {
-    window.history.back();
+    settingsPanel.classList.remove('active');
   }
 </script>
 
