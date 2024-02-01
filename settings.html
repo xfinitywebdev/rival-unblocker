@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Rival Unblocker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .settings-container {
+    position: relative;
+  }
+
+  .settings-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+
+  .settings-panel {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .settings-panel.active {
+    display: block;
+  }
+
+  .setting-item {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="settings-container">
+  <button id="settingsButton" class="settings-button">Settings</button>
+  <div id="settingsPanel" class="settings-panel">
+    <div class="setting-item">
+      <label for="cloakingCheckbox">Cloaking:</label>
+      <input type="checkbox" id="cloakingCheckbox">
+    </div>
+  </div>
+</div>
+
+<script>
+  var settingsButton = document.getElementById('settingsButton');
+  var settingsPanel = document.getElementById('settingsPanel');
+  var cloakingCheckbox = document.getElementById('cloakingCheckbox');
+
+  settingsButton.addEventListener('click', function() {
+    settingsPanel.classList.toggle('active');
+  });
+
+  cloakingCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      // Enable cloaking
+      // You can add your cloaking functionality here
+      alert('Cloaking enabled!');
+    } else {
+      // Disable cloaking
+      // You can add your cloaking disabling functionality here
+      alert('Cloaking disabled!');
+    }
+  });
+
+  // Cloaking checker function
+  function checkCloakingStatus() {
+    var isCloakingEnabled = cloakingCheckbox.checked;
+    if (isCloakingEnabled) {
+      alert('Cloaking is enabled!');
+    } else {
+      alert('Cloaking is disabled!');
+    }
+  }
+
+  // Example usage: check cloaking status on page load
+  checkCloakingStatus();
+</script>
+
+</body>
+</html>
