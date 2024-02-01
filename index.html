@@ -7011,6 +7011,7 @@ body {
 	<script async src="https://cse.google.com/cse.js?cx=27f8943714a10407c">
   </script>
   <div class="gcse-search"></div>
+	<a href="newpage.html"  onclick="loadNewPage()"><button>Settings</button></a>
 
   <div class="circle-container">
     <div class="circle"></div>
@@ -7317,5 +7318,12 @@ body {
          <script src="assets/uv/uv.bundle.js"></script>
         <script src="assets/uv/uv.config.js"></script>
         <script src="assets/uv/index.js"></script>
+
+	<script>
+		    function loadNewPage() {
+      window.location.replace("newpage.html");
+      return false; // This prevents the default behavior of the link
+    }
+	</script>
 </body>
 </html>
