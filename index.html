@@ -56,10 +56,29 @@
 <body>
 
 <h1>Rival Unblocker</h1>
-  <hr>
-<script async src="https://cse.google.com/cse.js?cx=27f8943714a10407c">
-</script>
+
+<div class="search-container">
+  <input id="searchInput" type="text" class="search-input" placeholder="Search...">
+  <button id="searchButton" class="search-button">
+    <img src="search.png" alt="Search" width="20">
+  </button>
+</div>
+
+<hr>
+
+<script async src="https://cse.google.com/cse.js?cx=27f8943714a10407c"></script>
 <div class="gcse-search"></div>
+
+<script>
+  document.getElementById('searchButton').addEventListener('click', function() {
+    var query = document.getElementById('searchInput').value.trim();
+    if (query !== '') {
+      // Implement your search functionality here or redirect to your desired search engine.
+      // For demonstration purposes, let's just alert the search query.
+      alert('Search query: ' + query);
+    }
+  });
+</script>
 
 </body>
 </html>
