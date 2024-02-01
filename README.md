@@ -13,3 +13,9 @@ as u can see there is no render.yaml file
 # Thanks for using the site! 
 
 Don't forget to share this with friends and/or family for more content. 
+
+# THANKS TO THE DEVS WHO CONTRIBUTED TO MAKE THIS SITE
+
+@sebunz
+@broplswork
+@xfinitywebdev
