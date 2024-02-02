@@ -1,9 +1,0 @@
-services:
-  - name: rival-unblocker
-    env: node
-    buildCommand: npm install
-    startCommand: npm start
-    github:
-      repo: xfinitywebdev/rival-unblocker
-      branch: main
-      
