@@ -7520,7 +7520,12 @@ function disableTabCloak() {
   document.title = newTitle;
   var icon = document.querySelector('link[rel="icon"]');
   icon.setAttribute('href', newIcon);
+
+  // Disable about:blank cloaking
+  localStorage.setItem('aboutBlank', 'disabled');
+  console.log('Blanker Disabled.');
 }
+
 
 function openWindow() {
   var win = window.open();
