@@ -2,7 +2,20 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 
 form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+  event.preventDefault(); // Prevent the form from submitting
+  performSearch(); // Call the function to handle the search
+});
+
+// Listen for keydown event in the input field
+input.addEventListener("keydown", async (event) => {
+  // Check if the key pressed is Enter (key code 13)
+  if (event.keyCode === 13) {
+    event.preventDefault(); // Prevent the default action (form submission)
+    performSearch(); // Call the function to handle the search
+  }
+});
+
+function performSearch() {
   window.navigator.serviceWorker
     .register("sw.js", {
       scope: __uv$config.prefix,
@@ -15,7 +28,7 @@ form.addEventListener("submit", async (event) => {
       localStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
       location.href = "/~";
     });
-});
+}
 
 function isUrl(val = "") {
   if (
