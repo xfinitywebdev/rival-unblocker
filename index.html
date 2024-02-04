@@ -7423,16 +7423,34 @@ footer a:hover {
   </div>
 </div>
 
-         <script src="assets/uv/uv.bundle.js"></script>
-        <script src="assets/uv/uv.config.js"></script>
-        <script src="assets/uv/index.js"></script>
-	<script src="assets/uv/uv.sw.js"></script>
+       /*global UVServiceWorker,__uv$config*/
 
-	<script>
-		    function loadNewPage() {
-      window.location.replace("settings.html");
-      return false; // This prevents the default behavior of the link
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector("form");
+    const input = document.querySelector("input");
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+        
+        // Create a MessageChannel to communicate between the client and service worker
+        const channel = new MessageChannel();
+        
+        // Add a message event listener to handle responses from the service worker
+        channel.port1.onmessage = function(event) {
+            // Redirect to the URL received from the service worker
+            window.location.replace(event.data.url);
+        };
+        
+        // Send a message to the service worker with the search query
+        navigator.serviceWorker.controller.postMessage({ msg: 'search', query: input.value }, [channel.port2]);
+    });
+
+    function isUrl(val = "") {
+        if (
+            /^http(s?):\/\//.test(val) ||
+            (val.includes(".") && val.substr(0, 1) !== " ")
+        )
+            return true;
+        return false;
     }
-	</script>
-</body>
-</html>
+});
