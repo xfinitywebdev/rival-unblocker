@@ -1,11 +1,8 @@
-/*globals __uv$config*/
 // Users must import the config (and bundle) prior to importing uv.sw.js
 // This is to allow us to produce a generic bundle with no hard-coded paths.
 
-/**
- * @type {import('../uv').UltravioletCtor}
- */
-const Ultraviolet = self.Ultraviolet;
+/* global __uv$config */
+import { Ultraviolet } from './uv.bundle.js'; // Update the path if necessary
 
 const cspHeaders = [
     'cross-origin-embedder-policy',
@@ -37,20 +34,10 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
             Array.isArray(config.bare) ? config.bare : [config.bare]
         ).map((str) => new URL(str, location).toString());
         this.address = addresses[~~(Math.random() * addresses.length)];
-        /**
-         * @type {InstanceType<Ultraviolet['BareClient']>}
-         */
         this.bareClient = new Ultraviolet.BareClient(this.address);
     }
-    /**
-     *
-     * @param {Event & {request: Request}} param0
-     * @returns
-     */
+
     async fetch({ request }) {
-        /**
-         * @type {string|void}
-         */
         let fetchedURL;
 
         try {
@@ -59,17 +46,11 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
 
             const ultraviolet = new Ultraviolet(this.config, this.address);
 
-            // Rest of the fetch method remains unchanged
-            // ...
+            // Your existing fetch logic here...
         } catch (err) {
-            // Error handling remains unchanged
-            // ...
+            // Your existing error handling logic here...
         }
     }
-    static Ultraviolet = Ultraviolet;
 }
 
-self.UVServiceWorker = UVServiceWorker;
-
-// Remaining code for ResponseContext, RequestContext, isHtml, HookEvent, 
-// hostnameErrorTemplate, errorTemplate, isBareError, and renderError remains unchanged
+export { UVServiceWorker };
