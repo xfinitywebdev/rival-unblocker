@@ -1,35 +1,56 @@
-/*global UVServiceWorker,__uv$config*/
-/*
- * Stock service worker script.
- * Users can provide their own sw.js if they need to extend the functionality of the service worker.
- * Ideally, this will be registered under the scope in uv.config.js so it will not need to be modified.
- * However, if a user changes the location of uv.bundle.js/uv.config.js or sw.js is not relative to them, they will need to modify this script locally.
- */
-importScripts('uv.bundle.js');
-importScripts('uv.config.js');
-importScripts(__uv$config.sw || 'uv.sw.js');
+// Users must import the config (and bundle) prior to importing uv.sw.js
+// This is to allow us to produce a generic bundle with no hard-coded paths.
 
-const sw = new UVServiceWorker();
+/* global __uv$config */
+import { Ultraviolet } from './uv.bundle.js'; // Update the path if necessary
 
-self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
+const cspHeaders = [
+    'cross-origin-embedder-policy',
+    'cross-origin-opener-policy',
+    'cross-origin-resource-policy',
+    'content-security-policy',
+    'content-security-policy-report-only',
+    'expect-ct',
+    'feature-policy',
+    'origin-isolation',
+    'strict-transport-security',
+    'upgrade-insecure-requests',
+    'x-content-type-options',
+    'x-download-options',
+    'x-frame-options',
+    'x-permitted-cross-domain-policies',
+    'x-powered-by',
+    'x-xss-protection',
+];
+const emptyMethods = ['GET', 'HEAD'];
 
-// Add a message event listener to receive messages from the client
-self.addEventListener('message', (event) => {
-  if (event.data.msg === 'search') {
-    // Extract the search query from the message data
-    const searchQuery = event.data.query.trim();
-    // Check if the search query resembles a URL
-    const isURL = /^(https?:\/\/)?([\w\d]+\.)?[\w\d]+\.\w+/.test(searchQuery);
-    
-    // If it's not a URL, perform a Google search with the query
-    if (!isURL) {
-      // Construct the Google search URL
-      const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-      // Respond to the client with the Google search URL
-      event.ports[0].postMessage({ url: googleSearchURL });
-    } else {
-      // If it's a URL, respond to the client with the URL itself
-      event.ports[0].postMessage({ url: searchQuery });
+class UVServiceWorker extends Ultraviolet.EventEmitter {
+    constructor(config = __uv$config) {
+        super();
+        if (!config.bare) config.bare = '/bare/';
+        if (!config.prefix) config.prefix = '/service/';
+        this.config = config;
+        const addresses = (
+            Array.isArray(config.bare) ? config.bare : [config.bare]
+        ).map((str) => new URL(str, location).toString());
+        this.address = addresses[~~(Math.random() * addresses.length)];
+        this.bareClient = new Ultraviolet.BareClient(this.address);
     }
-  }
-});
+
+    async fetch({ request }) {
+        let fetchedURL;
+
+        try {
+            if (!request.url.startsWith(location.origin + this.config.prefix))
+                return await fetch(request);
+
+            const ultraviolet = new Ultraviolet(this.config, this.address);
+
+            // Your existing fetch logic here...
+        } catch (err) {
+            // Your existing error handling logic here...
+        }
+    }
+}
+
+export { UVServiceWorker };
