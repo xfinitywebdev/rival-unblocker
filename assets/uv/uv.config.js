@@ -1,35 +1,13 @@
-/*global UVServiceWorker,__uv$config*/
-/*
- * Stock service worker script.
- * Users can provide their own sw.js if they need to extend the functionality of the service worker.
- * Ideally, this will be registered under the scope in uv.config.js so it will not need to be modified.
- * However, if a user changes the location of uv.bundle.js/uv.config.js or sw.js is not relative to them, they will need to modify this script locally.
- */
-importScripts('uv.bundle.js');
-importScripts('uv.config.js');
-importScripts(__uv$config.sw || 'uv.sw.js');
+/* globals UVServiceWorker, __uv$config */
+import { Ultraviolet } from './uv.bundle.js'; // Assuming uv.bundle.js exports Ultraviolet
+import { UVServiceWorker } from './uv.sw.js'; // Update the path if necessary
 
-const sw = new UVServiceWorker();
+const config = __uv$config || {};
 
-self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
+// Ensure default values for config properties
+if (!config.bare) config.bare = '/bare/';
+if (!config.prefix) config.prefix = '/service/';
 
-// Add a message event listener to receive messages from the client
-self.addEventListener('message', (event) => {
-  if (event.data.msg === 'search') {
-    // Extract the search query from the message data
-    const searchQuery = event.data.query.trim();
-    // Check if the search query resembles a URL
-    const isURL = /^(https?:\/\/)?([\w\d]+\.)?[\w\d]+\.\w+/.test(searchQuery);
-    
-    // If it's not a URL, perform a Google search with the query
-    if (!isURL) {
-      // Construct the Google search URL
-      const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-      // Respond to the client with the Google search URL
-      event.ports[0].postMessage({ url: googleSearchURL });
-    } else {
-      // If it's a URL, respond to the client with the URL itself
-      event.ports[0].postMessage({ url: searchQuery });
-    }
-  }
-});
+const sw = new UVServiceWorker(config);
+
+export { sw }; // Export the UVServiceWorker instance for use in other files
