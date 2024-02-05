@@ -1,6 +1,6 @@
 /* globals UVServiceWorker, __uv$config */
-import { Ultraviolet } from './uv.bundle.js'; // Assuming uv.bundle.js exports Ultraviolet
-import { UVServiceWorker } from './uv.sw.js'; // Update the path if necessary
+import { Ultraviolet } from 'uv.bundle.js'; // Assuming uv.bundle.js exports Ultraviolet
+import { UVServiceWorker } from 'uv.sw.js'; // Update the path if necessary
 
 const config = __uv$config || {};
 
