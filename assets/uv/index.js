@@ -1,4 +1,4 @@
-import { sw } from './uv.config.js'; // Import the UVServiceWorker instance
+import { sw } from 'uv.config.js'; // Import the UVServiceWorker instance
 
 // Add fetch event listener
 self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
