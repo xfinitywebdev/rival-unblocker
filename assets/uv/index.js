@@ -1,8 +1,6 @@
-// index.js
-
-import { sw } from 'uv.config.js'; // Import the UVServiceWorker instance
-import UVHandler from 'uv.handler.js'; // Import the UVHandler
-import { UVServiceWorker } from 'uv.sw.js'; // Import the UVServiceWorker
+import { sw } from './assets/uv/uv.config.js'; // Import the UVServiceWorker instance
+import UVHandler from './assets/uv/uv.handler.js'; // Import the UVHandler
+import { UVServiceWorker } from './assets/uv/uv.sw.js'; // Import the UVServiceWorker
 
 const config = __uv$config || {};
 const handler = new UVHandler(config);
