@@ -1,5 +1,8 @@
 importScripts('uv.bundle.js'); // Update the path if necessary
 
+// Import the Ultraviolet class from the UV bundle file
+const Ultraviolet = self.Ultraviolet;
+
 const cspHeaders = [
     'cross-origin-embedder-policy',
     'cross-origin-opener-policy',
