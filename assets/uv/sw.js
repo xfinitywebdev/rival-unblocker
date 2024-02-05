@@ -47,8 +47,20 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
             const ultraviolet = new Ultraviolet(this.config, this.address);
 
             // Your existing fetch logic here...
+
+            // Check if the request method is empty or not
+            if (emptyMethods.includes(request.method)) {
+                // If it's empty, return the response from the bare client
+                return await this.bareClient.fetch(request);
+            }
+
+            // If it's not empty, return the response from the ultraviolet instance
+            return await ultraviolet.fetch(request);
         } catch (err) {
             // Your existing error handling logic here...
+
+            // Return a response with the error message
+            return new Response(err.message, { status: 500 });
         }
     }
 }
