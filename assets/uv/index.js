@@ -1,33 +1,51 @@
-import { sw, uvHandler } from 'uv.config.js'; // Import the UVServiceWorker instance and UVHandler
+// index.js
+
+import { sw } from 'uv.config.js'; // Import the UVServiceWorker instance
+import UVHandler from 'uv.handler.js'; // Import the UVHandler
+import { UVServiceWorker } from 'uv.sw.js'; // Import the UVServiceWorker
+
+const config = __uv$config || {};
+const handler = new UVHandler(config);
 
 // Add fetch event listener
-self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
+self.addEventListener('fetch', async (event) => {
+  // Check if the request is for search
+  if (event.request.url.includes('/search')) {
+    // Extract the search query from the request URL
+    const url = new URL(event.request.url);
+    const query = url.searchParams.get('query');
+    
+    // Handle the search operation using the UVHandler
+    const searchResult = await handler.handleSearch(query);
+
+    if (searchResult) {
+      // If search is successful, respond with the search result URL
+      event.respondWith(new Response(searchResult, { status: 200 }));
+    } else {
+      // If search fails, respond with an error
+      event.respondWith(new Response('Search failed', { status: 500 }));
+    }
+  } else {
+    // For other requests, use the UVServiceWorker instance
+    event.respondWith(sw.fetch(event));
+  }
+});
 
 // Add message event listener for search functionality
-self.addEventListener('message', async (event) => {
+self.addEventListener('message', (event) => {
   if (event.data.msg === 'search') {
-    try {
-      // Extract the search query from the message data
-      const searchQuery = event.data.query.trim();
-      // Check if the search query resembles a URL
-      const isURL = /^(https?:\/\/)?([\w\d]+\.)?[\w\d]+\.\w+/.test(searchQuery);
-
-      let searchResult;
-      // If it's not a URL, perform a Google search with the query
-      if (!isURL) {
-        // Construct the Google search URL
-        const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-        searchResult = { url: googleSearchURL };
-      } else {
-        // If it's a URL, use UVHandler to process the search query
-        searchResult = await uvHandler.handleSearch(searchQuery);
-      }
-      // Respond to the client with the search result
-      event.ports[0].postMessage(searchResult);
-    } catch (error) {
-      console.error('Error handling search:', error);
-      // Respond with an error message if an error occurs
-      event.ports[0].postMessage({ error: 'An error occurred while processing the search.' });
-    }
+    // Extract the search query from the message data
+    const searchQuery = event.data.query.trim();
+    
+    // Perform the search operation using the UVHandler
+    handler.handleSearch(searchQuery)
+      .then((searchResult) => {
+        // Respond to the client with the search result
+        event.ports[0].postMessage({ url: searchResult });
+      })
+      .catch((error) => {
+        // Respond with an error if search fails
+        event.ports[0].postMessage({ error: error.message });
+      });
   }
 });
