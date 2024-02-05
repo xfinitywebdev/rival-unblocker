@@ -1,8 +1,4 @@
-// Users must import the config (and bundle) prior to importing uv.sw.js
-// This is to allow us to produce a generic bundle with no hard-coded paths.
-
-/* global __uv$config */
-import { Ultraviolet } from 'uv.bundle.js'; // Update the path if necessary
+importScripts('uv.bundle.js'); // Update the path if necessary
 
 const cspHeaders = [
     'cross-origin-embedder-policy',
@@ -41,16 +37,32 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
         let fetchedURL;
 
         try {
-            if (!request.url.startsWith(location.origin + this.config.prefix))
+            if (!request.url.startsWith(location.origin + this.config.prefix)) {
                 return await fetch(request);
+            }
 
             const ultraviolet = new Ultraviolet(this.config, this.address);
 
             // Your existing fetch logic here...
+
+            // Check if the request method is empty or not
+            if (emptyMethods.includes(request.method)) {
+                // If it's empty, return the response from the bare client
+                return await this.bareClient.fetch(request);
+            }
+
+            // If it's not empty, return the response from the ultraviolet instance
+            return await ultraviolet.fetch(request);
         } catch (err) {
             // Your existing error handling logic here...
+
+            // Return a response with the error message
+            return new Response(err.message, { status: 500 });
         }
     }
 }
 
-export { UVServiceWorker };
+self.addEventListener('fetch', (event) => {
+    const serviceWorker = new UVServiceWorker();
+    event.respondWith(serviceWorker.fetch(event));
+});
