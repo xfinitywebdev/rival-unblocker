@@ -101,5 +101,27 @@ class Ultraviolet {
     static Bowser = Bowser;
 }
 
+// Add this line to mark the beginning of your bundled code
+/******/ (() => { 
+
+// Contents of your uv.bundle.js file here...
+// Replace the placeholder comments with the actual content of your uv.bundle.js file
+
+// Assuming other UV files are included here
+// import { HTMLRewriter, CSSRewriter, JSRewriter } from './uv-rewriter.js';
+// import { xor, base64, plain } from './uv-codec.js';
+// import { mime } from './uv-mime.js';
+// import { setCookie, openDB } from './uv-utils.js';
+// import { Bowser } from './uv-bowser.js';
+
+// Example:
+// const myModule1 = require('./myModule1');
+// const myModule2 = require('./myModule2');
+// const myFunction = () => { /* Your function implementation */ };
+
+/******/ })() 
+// Add this line to mark the end of your bundled code
+;
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ultraviolet);
 if (typeof self === 'object') self.Ultraviolet = Ultraviolet;
