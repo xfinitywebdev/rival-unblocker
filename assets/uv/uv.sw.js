@@ -1,7 +1,5 @@
-importScripts('uv.bundle.js'); // Update the path if necessary
-
-// Import the Ultraviolet class from the UV bundle file
-const Ultraviolet = self.Ultraviolet;
+importScripts('uv.bundle.js');
+import { UVHandler } from './uv.handler.js'; // Import UVHandler class
 
 const cspHeaders = [
     'cross-origin-embedder-policy',
@@ -34,6 +32,7 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
         ).map((str) => new URL(str, location).toString());
         this.address = addresses[~~(Math.random() * addresses.length)];
         this.bareClient = new Ultraviolet.BareClient(this.address);
+        this.uvHandler = new UVHandler(config); // Initialize UVHandler
     }
 
     async fetch({ request }) {
@@ -46,21 +45,26 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
 
             const ultraviolet = new Ultraviolet(this.config, this.address);
 
-            // Your existing fetch logic here...
+            // Handle incoming request using UVHandler
+            let response = await this.uvHandler.handleRequest(request);
 
-            // Check if the request method is empty or not
-            if (emptyMethods.includes(request.method)) {
-                // If it's empty, return the response from the bare client
-                return await this.bareClient.fetch(request);
+            // Check if the response is null or undefined
+            if (!response) {
+                // If response is not handled by UVHandler, proceed with Ultraviolet
+                response = await ultraviolet.fetch(request);
             }
 
-            // If it's not empty, return the response from the ultraviolet instance
-            return await ultraviolet.fetch(request);
-        } catch (err) {
-            // Your existing error handling logic here...
+            // Handle outgoing response using UVHandler
+            response = await this.uvHandler.handleResponse(response);
 
-            // Return a response with the error message
-            return new Response(err.message, { status: 500 });
+            // Perform additional actions after responding
+            await this.uvHandler.afterResponse(request, response);
+
+            return response;
+        } catch (err) {
+            // Handle errors appropriately
+            console.error('Error in UVServiceWorker fetch:', err);
+            return new Response('Internal Server Error', { status: 500 });
         }
     }
 }
