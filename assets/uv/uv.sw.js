@@ -2,7 +2,7 @@
 // This is to allow us to produce a generic bundle with no hard-coded paths.
 
 /* global __uv$config */
-import { Ultraviolet } from './uv.bundle.js'; // Update the path if necessary
+import { Ultraviolet } from 'uv.bundle.js'; // Update the path if necessary
 
 const cspHeaders = [
     'cross-origin-embedder-policy',
