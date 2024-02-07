@@ -7105,7 +7105,7 @@ footer a:hover {
 
 	<h1>Rival Proxy</h1>
 	<div class="search-container">
-		<form>
+		<form id="searchform">
 			<input id="searchInput" type="text" class="search-input" placeholder="Search...">
 		</form>
 	</div>
@@ -7431,6 +7431,18 @@ footer a:hover {
 
     <!-- Your other scripts -->
     <script>
+	document.getElementById("searchform").addEventListener("submit", async (event) => {
+	  	event.preventDefault();
+	  	try {
+	    		await registerSW();
+	  	} catch (err) {
+	    		alert(err.toString());
+	    		throw err;
+	  	}
+	  	const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
+		window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
+	}
+	    
         function loadNewPage() {
             window.location.replace("settings.html");
             return false; // This prevents the default behavior of the link
