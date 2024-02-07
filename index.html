@@ -7427,14 +7427,6 @@ footer a:hover {
     <div class="circle"></div>
   </div>
 </div>
-
-    <!-- Script tags for UV files -->
-    <script src="assets/uv/uv.bundle.js"></script>
-    <script src="assets/uv/uv.config.js"></script>
-    <script src="assets/uv/uv.sw.js"></script>
-    <script src="assets/uv/index.js"></script>
-
-    <!-- Your other scripts -->
     <script>
 	document.getElementById("searchform").addEventListener("submit", async (event) => {
 	  	event.preventDefault();
@@ -7446,12 +7438,6 @@ footer a:hover {
 	  	}
 	  	const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
 		window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
-	}
-	    
-        function loadNewPage() {
-            window.location.replace("settings.html");
-            return false; // This prevents the default behavior of the link
-        }
-    </script>
+	});
 </body>
 </html>
