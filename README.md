@@ -20,7 +20,7 @@ Don't forget to share this with friends and/or family for more content.
 @broplswork
 @xfinitywebdev
 @oof.knife
-
+@patato (dragon)
 # info about the site
 
 this is v1 from v1 we will go there to v2 v3 v4 and v5 our final one maybe more it will get better and better
