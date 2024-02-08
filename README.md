@@ -5,10 +5,8 @@ rival unblocker an unblocker made to satisfy ur need when u get bored in class n
 just go on it its in beta Right now so theres alot of stuff missing
 
 # DEPLOYING
-https://vercel.app/    
-https://pages.cloudflare.com/ 
-It only works on those right now it does not work on render fl0 or other web service yet
-as u can see there is no render.yaml file
+The site updates daily this site can only be deployed on static host for now
+and not other host not including render.
 
 # Thanks for using the site! 
 
