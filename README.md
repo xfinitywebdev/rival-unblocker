@@ -2,7 +2,7 @@
 
 # Description 
 rival unblocker an unblocker made to satisfy ur need when u get bored in class nothing to do
-just go on it its in beta Right now so theres alot of stuff missing
+just go on it its in beta Right now The site is done coding for v1 v1.1 is coming soon
 
 # DEPLOYING
 The site updates daily this site can only be deployed on static host for now
@@ -25,3 +25,7 @@ this is v1 from v1 we will go there to v2 v3 v4 and v5 our final one maybe more 
 miner updates like little ones will be posted on the discord and we will call it like v1.1 or v1.2 and etc
 share this exciting site everywhere
 THANKS FOR USING OUR SITE
+
+# SITE UPDATE
+we know that the server is slow rn and not working well the proxy is slow we are working on fixing it and how its not updating on vercel we are fixing it
+when its done u should know because we will update this
