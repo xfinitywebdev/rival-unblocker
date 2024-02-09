@@ -35,7 +35,6 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    cursor: none;
   }
 
   h1 {
@@ -7103,44 +7102,6 @@ footer a:hover {
             transform: scale(1.09);
         }
 
-.small{
-  width: 6px;
-  height: 6px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-}
-.big{
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-  margin-bottom: 20rem;
-  animation-name: stretch;
-            animation-duration: 2.0s;
-            animation-timing-function: ease-out;
-            animation-direction: alternate;
-            animation-iteration-count: infinite;
-            animation-play-state: running;
-}
-
-
-@keyframes stretch {
-            0% {
-               
-                opacity: 0.2;
-                background-color: green;
-                border-radius: 100%;
-            }
-  
-            50% {
-                background-color: orange;
-            }
-  
-            100% {
-                //transform: scale(2.0);
-                background-color: red;
-            }
-        }
 </style>
 </head>
 <body>
@@ -7164,8 +7125,7 @@ footer a:hover {
 		</div>
 	</footer>
 	
-<div class="cursor small"></div>
-<div class="cursor big"><div>
+
 
   <div class="circle-container">
     <div class="circle"></div>
@@ -7481,21 +7441,9 @@ footer a:hover {
 		window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
 	});
 
-	    const cursorSmall = document.querySelector('.small');
-const cursorBig = document.querySelector('.big');
 
 
-const positionElement = (e)=> {
-  const mouseY = e.clientY;
-  const mouseX = e.clientX;
-   
-  cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  
-  cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
- 
-}
 
-window.addEventListener('mousemove', positionElement)
     </script>
 </body>
 </html>
