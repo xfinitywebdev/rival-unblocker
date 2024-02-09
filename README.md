@@ -27,5 +27,5 @@ share this exciting site everywhere
 THANKS FOR USING OUR SITE
 
 # SITE UPDATE
-v1.1 is coming now its updating we dont know when its offically gonnna get released but the site is fine and in
-perfect shape
+v1.1 is coming now its updating V1.1 IS OFFICALLY UPDATING IN SUNDAY IT WILL BE RELEASED
+THANKS FOR TUNING IN THE SITE JOIN THE DISCORD FOR MORE https://discord.gg/4S7HNdyMwA
