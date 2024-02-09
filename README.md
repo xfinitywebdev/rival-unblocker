@@ -27,5 +27,5 @@ share this exciting site everywhere
 THANKS FOR USING OUR SITE
 
 # SITE UPDATE
-we know that the server is slow rn and not working well the proxy is slow we are working on fixing it and how its not updating on vercel we are fixing it
-when its done u should know because we will update this
+v1.1 is coming now its updating we dont know when its offically gonnna get released but the site is fine and in
+perfect shape
