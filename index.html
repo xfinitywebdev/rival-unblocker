@@ -7102,6 +7102,13 @@ footer a:hover {
             transform: scale(1.09);
         }
 
+	.small{
+  width: 5px;
+  height: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
 </style>
 </head>
 <body>
@@ -7124,6 +7131,8 @@ footer a:hover {
 
 		</div>
 	</footer>
+	
+	<div class="cursor big"><div>
 
   <div class="circle-container">
     <div class="circle"></div>
@@ -7438,6 +7447,22 @@ footer a:hover {
 	  	const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
 		window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
 	});
+
+	    const cursorSmall = document.querySelector('.small');
+const cursorBig = document.querySelector('.big');
+
+
+const positionElement = (e)=> {
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
+   
+  cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  
+  cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+ 
+}
+
+window.addEventListener('mousemove', positionElement)
     </script>
 </body>
 </html>
