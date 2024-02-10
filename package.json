@@ -1,0 +1,16 @@
+{
+  "name": "rival-unblocker",
+  "version": "1.0.0",
+  "description": "Where everything comes to life - A project by the Xfinity devs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Xfinity devs",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+    // Add any other dependencies your project requires
+  }
+}
