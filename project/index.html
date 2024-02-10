@@ -4,28 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rival Proxy</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Slab:100">
-    <!-- Your UV, service worker, search, and error scripts -->
-    <script src="uv/uv.bundle.js" defer></script>
-    <script src="uv/uv.config.js" defer></script>
-    <script src="register-sw.js" defer></script>
-    <script src="search.js" defer></script>
-    <script src="error.js" defer></script>
-    <style>
-        /* Your CSS styles */
-    </style>
 </head>
 <body>
-    <!-- Your website content goes here -->
-    <h1>Welcome to Rival Proxy</h1>
-    <p>This is a static webpage.</p>
-    <div id="dynamic-content">
-        <!-- Dynamic content will be loaded here -->
-    </div>
+    <!-- Display current time -->
+    <div id="current-time" style="position: fixed; top: 0; left: 0; background-color: rgba(255, 255, 255, 0.8); padding: 10px;">Loading current time...</div>
+
+    <!-- Display proxy content -->
+    <div id="proxy-content" style="margin-top: 50px;">Loading proxy content...</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -33,6 +18,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 	
   
