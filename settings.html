@@ -7413,42 +7413,16 @@ footer a:hover {
         <script src="assets/uv/index.js"></script>
 
 	<script>
+ <h1>Settings</h1>
+    <!-- Button to enable about:blank cloak -->
+    <button onclick="enableAboutBlank()">Enable about:blank Cloak</button>
+    <!-- Button to disable about:blank cloak -->
+    <button onclick="disableAboutBlank()">Disable about:blank Cloak</button>
 
-
-
-
-
-
-<!-- Your settings content here -->
-
-    <!-- Example: Button to enable about:blank -->
-    <button onclick="enableAboutBlank()">Enable about:blank</button>
-    <button onclick="disableAboutBlank()">Disable about:blank</button>
-
-    <!-- Context menu and submenu scripts -->
+    <!-- Include any necessary JavaScript files -->
+    <script src="functions.js"></script>
+    <!-- Script for event listeners -->
     <script>
-        function enableAboutBlank() {
-            localStorage.setItem('aboutBlank', 'enabled');
-            window.location.reload();
-        }
-
-        function disableAboutBlank() {
-            localStorage.setItem('aboutBlank', 'disabled');
-            window.location.reload();
-        }
-
-        function showContextMenu(event) {
-            // Your showContextMenu function code here
-        }
-
-        function hideContextMenu() {
-            // Your hideContextMenu function code here
-        }
-
-        function hideSubmenu() {
-            // Your hideSubmenu function code here
-        }
-
         // Add event listeners to show/hide the context menu
         document.addEventListener("contextmenu", showContextMenu);
         document.addEventListener("click", hideContextMenu);
