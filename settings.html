@@ -7419,43 +7419,51 @@ footer a:hover {
 
 
 
+<!-- Your settings content here -->
 
+    <!-- Example: Button to enable about:blank -->
+    <button onclick="enableAboutBlank()">Enable about:blank</button>
+    <button onclick="disableAboutBlank()">Disable about:blank</button>
 
+    <!-- Context menu and submenu scripts -->
+    <script>
+        function enableAboutBlank() {
+            localStorage.setItem('aboutBlank', 'enabled');
+            window.location.reload();
+        }
 
+        function disableAboutBlank() {
+            localStorage.setItem('aboutBlank', 'disabled');
+            window.location.reload();
+        }
 
+        function showContextMenu(event) {
+            // Your showContextMenu function code here
+        }
 
+        function hideContextMenu() {
+            // Your hideContextMenu function code here
+        }
 
+        function hideSubmenu() {
+            // Your hideSubmenu function code here
+        }
 
+        // Add event listeners to show/hide the context menu
+        document.addEventListener("contextmenu", showContextMenu);
+        document.addEventListener("click", hideContextMenu);
 
+        // Add event listener to hide the context menu and submenu when clicking outside of them
+        document.addEventListener("click", function(event) {
+            var contextMenu = document.getElementById("contextMenu");
+            var submenu = document.querySelector('.context-submenu');
 
-
-
-
-function enableAboutBlank() {
-  localStorage.setItem('aboutBlank', 'enabled');
-  window.location.reload();
-}
-
-function disableAboutBlank() {
-  localStorage.setItem('aboutBlank', 'disabled');
-  window.location.reload();
-}
-
-// Add event listeners to show/hide the context menu
-document.addEventListener("contextmenu", showContextMenu);
-document.addEventListener("click", hideContextMenu);
-
-// Add event listener to hide the context menu and submenu when clicking outside of them
-document.addEventListener("click", function(event) {
-  var contextMenu = document.getElementById("contextMenu");
-  var submenu = document.querySelector('.context-submenu');
-
-  if (!contextMenu.contains(event.target)) {
-      hideContextMenu();
-  } else if (!submenu.contains(event.target)) {
-      hideSubmenu();
-  }
-});
-	</script>
+            if (!contextMenu.contains(event.target)) {
+                hideContextMenu();
+            } else if (!submenu.contains(event.target)) {
+                hideSubmenu();
+            }
+        });
+    </script>
 </body>
 </html>
