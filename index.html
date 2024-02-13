@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-	<script src="uv/uv.bundle.js" defer></script>
-	<script src="uv/uv.config.js" defer></script>
-	<script src="register-sw.js" defer></script>
-	<script src="search.js" defer></script>
-	<script src="error.js" defer></script>
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-<link rel="manifest" href="assets/img/site.webmanifest">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Slab:100'>
-	<title>Rival Proxy</title>
-<style>
+    <meta charset="UTF-8">
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="error.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Slab:100'>
+    <title>Rival Proxy</title>
+    <style>
+        #clock {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-family: 'Josefin Slab', sans-serif;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <span id="clock"></span>
+
+    <!-- Include clock.js -->
+    <script src="clock.js"></script>
+</body>
+</html>
+
 * {
   margin: 0;
   padding: 0;
