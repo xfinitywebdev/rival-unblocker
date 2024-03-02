@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(black,rgb(61, 0, 61)); 
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .background {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+
+}
+.sidebar {
+  height: 100%;
+  width: 60px; /* Adjust the width as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Adjust the font size as needed */
+  padding: 5px; /* Adjust the padding as needed */
+  border-radius: 50%;
+  width: 40px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  transition: all 0.3s ease;
+}
+
+.sidebar a img {
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  border-radius: 50%;
+  margin-bottom: 3px; /* Spacing between icon and text */
+}
+
+.sidebar a:hover {
+  background-color: purple;
+  color: white;
+  padding: 10px; /* Adjust the padding as needed */
+  border-radius: 50%;
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+<link rel="manifest" href="assets/img/site.webmanifest">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Slab:100'>
+<link rel='stylesheet' href='assets/css/index.css'>
+<link rel="stylesheet" type="text/css" href="assets/css/particle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link id="themeStylesheet" rel='stylesheet' href='assets/css/index.css'>
+<script src="assets/js/theme.js"></script>
+
+<title>Rival Proxy</title>
+<style>
+  h1 {
+    margin-bottom: 0px;
+    font-weight: bold;
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #fff;
+	font-size: 70px;
+	margin-top: 30px;
+  }
+.button-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  .centered-button {
+    width: fit-content;
+    margin: 10px; 
+    padding: 10px; 
+    border: 2px solid rgb(209, 209, 209);
+    color: white; 
+    cursor: pointer; 
+  }
+button:disabled {
+    background-color: rgba(128, 128, 128, 0.548);
+    border: transparent;
+    cursor:auto;
+}
+button:disabled:hover {
+    background-color: rgba(128, 128, 128, 0.548);
+    border: transparent;
+    color: white;
+}
+.containers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 1% 20px 20px 20px;
+	
+}
+
+
+    .thing {
+      border-radius: 15px;
+      height: 170px;
+      margin-top: 60px;
+      margin-left: 200px;
+      margin-right: 20px;
+      background-color: rgba(74, 73, 73, 0.5);
+      width: 330px;
+      text-align: center;
+      box-shadow: 0px 8px 11px 0px rgba(0, 0, 0, 0.4);
+      padding: 20px;
+    }
+
+    #dropdown,
+    .option {
+      background-color: #555; 
+      color: #fff;
+      border: 2px solid #777;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #dropdown:hover,
+    .option:hover {
+      background-color: #777; 
+      color: #ffd700;
+    }
+
+    button:disabled,
+    button:disabled:hover {
+      background-color: rgba(128, 128, 128, 0.548);
+      border: transparent;
+      cursor: auto;
+    }
+</style>
+</head>
+<body onload="applyTheme()">
+
+
+	<h1>Settings</h1>
+  <div class="sidebar">
+    <a href="home.html"><img src="assets/img/favicon.ico" alt="Sidebar Image"></a>
+    <a href="index.html"><i class="fas fa-search"></i></a>
+    <a><i class="fas fa-cog"></i></a>
+    <a href="games.html"><i class="fas fa-gamepad"></i></a>
+    <a href="credits.html"><i class="fas fa-users"></i></a>
+    <a href="https://discord.gg/VjNkauHFTp"><i class="fab fa-discord"></i></a>
+    <a href="https://github.com/xfinitywebdev/rival-unblocker"><i class="fab fa-github"></i></a>
+  </div>
+  <div class="thing">
+    <br>
+    <br>
+    <p style="font-size:23px; color: #fff;">Themes</p>
+    <br>
+    <select id="dropdown" class="option" style="text-align: center;" onchange="changeTheme(this.value)">
+      <option disabled value="placeholder" selected>Select a theme</option>
+      <option value="starry" class="option">Starry (Default)</option>
+      <option value="ocean" class="option">Ocean</option>
+      <option value="forest" class="option">Forest</option>
+      <option value="desert" class="option">Desert</option>
+    </select>
+  </div>
+
+  
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+</div>
+
+
+
+        <script src="assets/uv/uv.bundle.js"></script>
+        <script src="assets/uv/uv.config.js"></script>
+        <script src="assets/uv/index.js"></script>
+	      <script src="assets/uv/uv.sw.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+<link rel="manifest" href="assets/img/site.webmanifest">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Slab:100'>
+<link rel='stylesheet' href='assets/css/index.css'>
+<link rel="stylesheet" type="text/css" href="assets/css/particle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link id="themeStylesheet" rel='stylesheet' href='assets/css/index.css'>
+<script src="assets/js/theme.js"></script>
+
+	<title>Rival Proxy</title>
+<style>
+
+
+  h1 {
+    margin-bottom: 0px;
+    font-weight: bold;
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #fff;
+	font-size: 70px;
+	margin-top: 80px;
+  }
+
+  h2 { 	
+    margin-bottom: 0px;
+    font-weight: bold;
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #fff;
+	font-size: 30px;
+	margin-top: 20px;
+  
+  }
+
+  .search-container {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-top: 70px;
+	width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+
+}
+
+footer {
+  margin: 0 5vw;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+footer > div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+footer a,
+footer span {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+footer a {
+  cursor: pointer;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+  .search-input {
+    flex: 1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+	width: 700px;
+  }
+  
+    button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+	margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: grey;
+  }
+
+  .search-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-button:hover {
+    background-color: #45a049;
+  }
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+
+        .game-card {
+            background-color: #1c1c1c; 
+            border: 1px solid #333;  
+			
+            border-radius: 25px;
+            padding: 7px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+            width: 80px; 
+            height: 70px; 
+            display: inline-block;
+
+            text-align: center;
+			margin-top: 100px;
+			margin-right: 10px;
+			margin-left: 80px;
+			margin-bottom: auto;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            text-align: center;
+			margin-top: 100px;
+			margin-right: 10px;
+			margin-left: 80px;
+			margin-bottom: auto;
+        }
+
+        .game-card img {
+            max-width: 90%;
+            max-height: 150%;
+            min-height: 100%;
+            height: auto;
+			width: auto;
+            border-radius: 20px;
+            padding: 0px;
+            transition: transform 0.8s;
+			margin-top: auto;
+			margin-right: auto;
+			margin-left: auto;
+			margin-bottom: auto;
+        }
+
+        .game-card:hover img {
+            transform: scale(1.09);
+			margin-top: auto;
+			margin-right: auto;
+			margin-left: auto;
+			margin-bottom: auto;
+        }
+
+</style>
+</head>
+<body onload="applyTheme()">
+
+
+	<h1>Games</h1>
+
+	<main>
+		<section class="section">
+		<a href="games/roblox/index.html" class="game-card"> <img src="https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2GQM3vqXIAkk69mnIl4Cc8EyZcir2SKlVOxeUv9tZGfNTmNaLC717Ht=s48-rw" alt="Roblox"> </a>
+		<a href="games/slope/index.html" class="game-card"> <img src="https://play-lh.googleusercontent.com/uJn2i9h7KxYQarC_c3K4qH6o7gLtflFnhD_dN14MNkzHJ1NeNFzCL69jpB5mT0vCoQs=w480-h960-rw" alt="Slope"> </a>
+		<a href="games/sm64/index.html" class="game-card"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Super_Mario_64_box_cover.jpg/330px-Super_Mario_64_box_cover.jpg" alt="Mario 64"> </a>
+		<a href="games/retrobowl/index.html" class="game-card"> <img src="https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ=s96-rw" alt="Retro Bowl"> </a>
+		<a href="games/bstars/index.html" class="game-card"> <img src="data:image/jpeg;base64,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" alt="Basketball stars"> </a>
+		
+		</section>
+	
+	
+	
+	
+	</main>
+
+
+
+
+
+
+  <div class="sidebar">
+    <a href="home.html"><img src="assets/img/favicon.ico" alt="Sidebar Image"></a>
+    <a><i class="fas fa-search"></i></a>
+    <a href="settings.html"><i class="fas fa-cog"></i></a>
+    <a href="games.html"><i class="fas fa-gamepad"></i></a>
+    <a href="credits.html"><i class="fas fa-users"></i></a>
+    <a href="https://discord.gg/VjNkauHFTp"><i class="fab fa-discord"></i></a>
+    <a href="https://github.com/xfinitywebdev/rival-unblocker"><i class="fab fa-github"></i></a>
+  </div>  
+	
+
+
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+  <div class="circle-container">
+    <div class="circle"></div>
+  </div>
+</div>
+
+         <script src="assets/uv/uv.bundle.js"></script>
+        <script src="assets/uv/uv.config.js"></script>
+        <script src="assets/uv/index.js"></script>
+
+	<script>
+		    function loadNewPage() {
+      window.location.replace("settings.html");
+      return false; // This prevents the default behavior of the link
+    }
+	</script>
+</body>
+</html>
