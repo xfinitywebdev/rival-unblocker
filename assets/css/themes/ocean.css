@@ -34,7 +34,7 @@
   }
   .sidebar {
     height: 100%;
-    width: 60px; /* Adjust the width as needed */
+    width: 60px; 
     position: fixed;
     top: 0;
     left: 0;
