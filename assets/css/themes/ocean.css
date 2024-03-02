@@ -51,25 +51,25 @@
     justify-content: center;
     color: white;
     text-decoration: none;
-    font-size: 18px; /* Adjust the font size as needed */
-    padding: 5px; /* Adjust the padding as needed */
+    font-size: 18px; 
+    padding: 5px; 
     border-radius: 50%;
-    width: 40px; /* Fixed width */
-    height: 40px; /* Fixed height */
+    width: 40px; 
+    height: 40px;
     transition: all 0.3s ease;
   }
   
   .sidebar a img {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px; 
+    height: 30px; 
     border-radius: 50%;
-    margin-bottom: 3px; /* Spacing between icon and text */
+    margin-bottom: 3px;
   }
   
   .sidebar a:hover {
     background-color: cyan;
     color: white;
-    padding: 10px; /* Adjust the padding as needed */
+    padding: 10px; 
     border-radius: 50%;
   }
   
