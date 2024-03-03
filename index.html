@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-<link rel="manifest" href="assets/img/site.webmanifest">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Slab:100'>
-<link rel='stylesheet' href='assets/css/index.css'>
-<link rel="stylesheet" type="text/css" href="assets/css/particle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link id="themeStylesheet" rel='stylesheet' href='assets/css/index.css'>
-<script src="assets/js/theme.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Slab:100'>
+  <link rel='stylesheet' href='assets/css/index.css'>
+  <link rel="stylesheet" type="text/css" href="assets/css/particle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link id="themeStylesheet" rel='stylesheet' href='assets/css/index.css'>
+  <script src="assets/js/theme.js"></script>
 
-<title>Rival Proxy</title>
-<style>
+  <title>Rival Proxy</title>
+  <style>
 
 h1 {
       margin-bottom: 0px;
@@ -426,18 +426,31 @@ footer a:hover {
     <div class="circle"></div>
   </div>
 </div>
-    <script>
-	document.getElementById("searchform").addEventListener("submit", async (event) => {
-	  	event.preventDefault();
-	  	try {
-	    		await registerSW();
-	  	} catch (err) {
-	    		alert(err.toString());
-	    		throw err;
-	  	}
-	  	const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
-		window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
-	});
-    </script>
+    </style>
+</head>
+<body onload="applyTheme()">
+
+<div class="content-container">
+</div>
+
+<form id="searchform">
+  <input type="text" id="searchInput" placeholder="Enter your search query">
+  <button type="submit">Search</button>
+</form>
+
+<script>
+document.getElementById("searchform").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    try {
+        await registerSW();
+    } catch (err) {
+        alert(err.toString());
+        throw err;
+    }
+    const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
+    window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
+});
+</script>
+
 </body>
 </html>
