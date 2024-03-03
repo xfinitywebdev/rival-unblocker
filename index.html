@@ -427,30 +427,10 @@ footer a:hover {
   </div>
 </div>
     </style>
-</head>
-<body onload="applyTheme()">
 
-<div class="content-container">
-</div>
 
-<form id="searchform">
-  <input type="text" id="searchInput" placeholder="Enter your search query">
-  <button type="submit">Search</button>
-</form>
 
-<script>
-document.getElementById("searchform").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    try {
-        await registerSW();
-    } catch (err) {
-        alert(err.toString());
-        throw err;
-    }
-    const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
-    window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
-});
-</script>
+
 
 </body>
 </html>
