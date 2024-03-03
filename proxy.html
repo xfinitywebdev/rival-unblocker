@@ -128,7 +128,8 @@ footer a:hover {
 	<h1>Rival Proxy</h1>
 	<div class="search-container">
 		<form id="searchform">
-			<input id="searchInput" type="text" class="search-input" placeholder="Search...">
+  			<input type="text" id="searchInput" placeholder="Enter your search query">
+  			<button type="submit">Search</button>
 		</form>
 	</div>
 
@@ -443,18 +444,20 @@ footer a:hover {
     <div class="circle"></div>
   </div>
 </div>
-  <script>
-    document.getElementById("searchform").addEventListener("submit", async (event) => {
-      event.preventDefault();
-      try {
+
+
+<script>
+document.getElementById("searchform").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    try {
         await registerSW();
-      } catch (err) {
+    } catch (err) {
         alert(err.toString());
         throw err;
-      }
-      const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
-      window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-    });
-  </script>
+    }
+    const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
+    window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
+});
+</script>
 </body>
 </html>
