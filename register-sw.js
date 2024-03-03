@@ -1,4 +1,5 @@
 "use strict";
+
 /**
  * Distributed with Ultraviolet and compatible with most configurations.
  */
@@ -23,8 +24,16 @@ async function registerSW() {
   if (!navigator.serviceWorker)
     throw new Error("Your browser doesn't support service workers.");
 
-  // Ultraviolet has a stock `sw.js` script.
-  await navigator.serviceWorker.register(stockSW, {
-    scope: __uv$config.prefix,
-  });
+  try {
+    // Register service worker
+    const registration = await navigator.serviceWorker.register(stockSW, {
+      scope: __uv$config.prefix,
+    });
+    console.log("Service worker registered:", registration);
+  } catch (error) {
+    console.error("Service worker registration failed:", error);
+  }
 }
+
+// Call the registerSW function
+registerSW();
