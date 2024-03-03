@@ -33,6 +33,26 @@
 	margin-top: 300px;
   }
 
+  .search-container {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-top: 70px;
+	width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+
+}
 
 footer {
   margin: 0 5vw;
@@ -70,6 +90,18 @@ footer a:hover {
   text-decoration: underline;
 }
 
+  .search-input {
+    flex: 1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+	  width: 700px;
+  }
+  
+
+
+
 .container {
   width: 100%;
   height: 100%;
@@ -88,39 +120,6 @@ footer a:hover {
   height: 100%;
 
 }
-    .search-container {
-      display: flex;
-      border: 2px solid #ccc;
-      border-radius: 50px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-top: 70px;
-      width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    form {
-      display: flex;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
-
-    .search-input {
-      flex: 1;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      outline: none;
-      width: 100%; 
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
 </style>
 </head>
 <body onload="applyTheme()">
@@ -130,7 +129,6 @@ footer a:hover {
 	<div class="search-container">
 		<form id="searchform">
 			<input id="searchInput" type="text" class="search-input" placeholder="Search...">
-			<button type="submit">Search</button>
 		</form>
 	</div>
 
@@ -445,20 +443,18 @@ footer a:hover {
     <div class="circle"></div>
   </div>
 </div>
-
-
-<script>
-document.getElementById("searchform").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    try {
+  <script>
+    document.getElementById("searchform").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      try {
         await registerSW();
-    } catch (err) {
+      } catch (err) {
         alert(err.toString());
         throw err;
-    }
-    const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
-    window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
-});
-</script>
+      }
+      const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
+      window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    });
+  </script>
 </body>
 </html>
