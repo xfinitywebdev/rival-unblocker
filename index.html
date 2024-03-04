@@ -15,8 +15,8 @@
 
   <title>Rival Proxy</title>
   <style>
-
-h1 {
+    /* Your custom styles here */
+    h1 {
       margin-bottom: 0px;
       font-weight: bold;
       display: inline-block;
@@ -29,7 +29,7 @@ h1 {
       margin-bottom: 20px;
     }
 
-	  h2 {
+    h2 {
       margin-bottom: 0px;
       font-weight: bold;
       display: inline-block;
@@ -41,103 +41,104 @@ h1 {
       margin-top: 15px;
     }
 
-  
-  form
-{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+    form {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
 
-}
+    footer {
+      margin: 0 5vw;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      line-height: 30px;
+      margin-bottom: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-footer {
-  margin: 0 5vw;
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  line-height: 30px;
-  margin-bottom: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
+    footer > div {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
 
-footer > div {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
+    footer a,
+    footer span {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+    }
 
-footer a,
-footer span {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 20px;
-}
+    footer a {
+      cursor: pointer;
+    }
 
-footer a {
-  cursor: pointer;
-}
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-footer a:hover {
-  text-decoration: underline;
-}
+    .container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
 
+    .background {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -o-object-fit: cover;
+         object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
 
-.container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.background {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-
-}
-
-
-.content-container {
+    .content-container {
       max-width: 800px;
       margin: 50px auto;
       text-align: center;
       color: #fff;
     }
 
-</style>
+    /* Circle Styles */
+    .circle-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .circle-container {
+      margin: 5px;
+      width: 50px;
+      height: 50px;
+      background-color: #ffffff;
+      border-radius: 50%;
+    }
+  </style>
 </head>
 <body onload="applyTheme()">
+  <div class="content-container">
+    <h1>Welcome to Rival Proxy!</h1>
+    <p>
+      Rival Proxy is a powerful tool that allows you to seamlessly navigate the internet, unblocking content and providing a smooth browsing experience.
+    </p>
+  </div>
 
-
-
-    <div class="content-container">
-        <h1>Welcome to Rival Proxy!</h1>
-        <p>
-          Rival Proxy is a powerful tool that allows you to seamlessly navigate the internet, unblocking content and providing a smooth browsing experience.
-        </p>
+  <footer>
+    <div>
+      <a href="tos.html">Terms of Service</a>
+      <a href="credits.html">Credits</a>
     </div>
+  </footer>
 
-  	<footer>
-		<div>
-			<a href="tos.html">Terms of Service</a>
-			<a title="The Devs" href="credits.html">Credits</a>
-
-
-		</div>
-	</footer>
-
-  
   <div class="sidebar">
     <a><img src="assets/img/favicon.ico" alt="Sidebar Image"></a>
     <a href="proxy.html"><i class="fas fa-search"></i></a>
@@ -147,15 +148,11 @@ footer a:hover {
     <a href="https://github.com/xfinitywebdev/rival-unblocker"><i class="fab fa-github"></i></a>
   </div>
 
-   <div class="circle-wrapper">
+  <!-- Circle Containers -->
+  <div class="circle-wrapper">
     <?php for ($i = 0; $i < 100; $i++): ?>
-      <div class="circle-container">
-        <div class="circle"></div>
-      </div>
+      <div class="circle-container"></div>
     <?php endfor; ?>
   </div>
-
-
-
 </body>
 </html>
