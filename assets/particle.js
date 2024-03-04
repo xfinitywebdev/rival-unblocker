@@ -18,18 +18,13 @@ particlesJS("particles-js", {
       },
       "polygon": {
         "nb_sides": 5
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
       }
     },
     "opacity": {
       "value": 0.5,
-      "random": false,
+      "random": true,
       "anim": {
-        "enable": false,
+        "enable": true,
         "speed": 1,
         "opacity_min": 0.1,
         "sync": false
@@ -72,7 +67,7 @@ particlesJS("particles-js", {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "grab"
       },
       "onclick": {
         "enable": true,
@@ -82,7 +77,7 @@ particlesJS("particles-js", {
     },
     "modes": {
       "grab": {
-        "distance": 400,
+        "distance": 140,
         "line_linked": {
           "opacity": 1
         }
