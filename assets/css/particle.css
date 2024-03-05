@@ -66,26 +66,26 @@
               transform: scale3d(0.4, 0.4, 1);
     }
   }
-  .circle-container:nth-child(1) {
-    width: 2px;
-    height: 2px;
-    -webkit-animation-name: move-frames-1;
-            animation-name: move-frames-1;
-    -webkit-animation-duration: 34227ms;
-            animation-duration: 34227ms;
-    -webkit-animation-delay: 12123ms;
-            animation-delay: 12123ms;
+.circle-container:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  -webkit-animation-name: move-frames-1;
+          animation-name: move-frames-1;
+  -webkit-animation-duration: 35459ms;
+          animation-duration: 35459ms;
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
+}
+@-webkit-keyframes move-frames-1 {
+  from {
+    -webkit-transform: translate3d(0vw, -100vh, 0); 
+            transform: translate3d(0vw, -100vh, 0); 
   }
-  @-webkit-keyframes move-frames-1 {
-    from {
-      -webkit-transform: translate3d(96vw, 101vh, 0);
-              transform: translate3d(96vw, 101vh, 0);
-    }
-    to {
-      -webkit-transform: translate3d(79vw, -129vh, 0);
-              transform: translate3d(79vw, -129vh, 0);
-    }
+  to {
+    -webkit-transform: translate3d(0vw, 0vh, 0); 
+            transform: translate3d(0vw, 0vh, 0); 
   }
+}
   @keyframes move-frames-1 {
     from {
       -webkit-transform: translate3d(96vw, 101vh, 0);
