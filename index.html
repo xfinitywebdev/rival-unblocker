@@ -500,7 +500,7 @@
     // Initial call to display the clock immediately
     updateClock();
   </script>
-<script>
+ <script>
     // Check if the browser supports the Battery Status API
     if ('getBattery' in navigator) {
       navigator.getBattery().then(function(battery) {
@@ -525,9 +525,18 @@
       const statusText = `Battery Level: ${Math.floor(battery.level * 100)}%`;
 
       if (battery.charging) {
-        statusElement.innerHTML = `<i id="battery-icon" class="fas fa-battery-full"></i> ${statusText} (Charging)`;
+        statusElement.innerHTML = `<i id="battery-icon" class="fas fa-bolt"></i> ${statusText} (Charging)`;
       } else {
-        statusElement.innerHTML = `<i id="battery-icon" class="fas fa-battery-full"></i> ${statusText}`;
+        statusElement.innerHTML = `<i id="battery-icon" class="fas fa-battery-full" style="color: ${getBatteryColor(battery.level)};"></i> ${statusText}`;
+      }
+    }
+
+    // Function to get battery color based on level
+    function getBatteryColor(level) {
+      if (level < 0.2) {
+        return 'red'; // Low battery
+      } else {
+        return 'white'; // Normal battery
       }
     }
   </script>
