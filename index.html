@@ -131,6 +131,22 @@
       margin-top: 20px; 
       color: white;
     }
+
+     #battery-status {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 50px 20px 0;
+    }
+
+    #battery-icon {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
   </style>
 </head>
 
@@ -142,6 +158,14 @@
       Read are tos before proceeding by clicking off the home page you automatically accept it.
     </p>
   </div>
+
+  
+  <div id="clock"></div>
+  <div id="battery-status">
+    <i id="battery-icon" class="fas fa-battery-full"></i>
+    Checking battery status...
+  </div>
+
 <div id="clock"></div>
   <footer>
     <div>
@@ -476,6 +500,36 @@
     // Initial call to display the clock immediately
     updateClock();
   </script>
+<script>
+    // Check if the browser supports the Battery Status API
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then(function(battery) {
+        updateBatteryStatus(battery);
 
+        // Update battery status when it changes
+        battery.addEventListener('levelchange', function() {
+          updateBatteryStatus(battery);
+        });
+
+        battery.addEventListener('chargingchange', function() {
+          updateBatteryStatus(battery);
+        });
+      });
+    } else {
+      document.getElementById('battery-status').textContent = "Battery status not supported.";
+    }
+
+    // Function to update battery status
+    function updateBatteryStatus(battery) {
+      const statusElement = document.getElementById('battery-status');
+      const statusText = `Battery Level: ${Math.floor(battery.level * 100)}%`;
+
+      if (battery.charging) {
+        statusElement.innerHTML = `<i id="battery-icon" class="fas fa-battery-full"></i> ${statusText} (Charging)`;
+      } else {
+        statusElement.innerHTML = `<i id="battery-icon" class="fas fa-battery-full"></i> ${statusText}`;
+      }
+    }
+  </script>
 </body>
 </html>
