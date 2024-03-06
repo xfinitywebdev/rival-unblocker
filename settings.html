@@ -104,7 +104,9 @@ button:disabled:hover {
 
 
 	<h1>Settings</h1>
-  <div class="sidebar">
+ <div id="clock" style="font-size: 24px; font-weight: bold; text-align: center; margin-top: 20px;"></div>
+
+	  <div class="sidebar">
     <a href="index.html"><img src="assets/img/favicon.ico" alt="Sidebar Image"></a>
     <a href="proxy.html"><i class="fas fa-search"></i></a>
     <a><i class="fas fa-cog"></i></a>
@@ -436,5 +438,17 @@ button:disabled:hover {
 	      <script src="assets/uv/uv.sw.js"></script>
 
 
+  <script>
+    function displayTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').textContent = timeString;
+    }
+    
+    setInterval(displayTime, 1000); // Update every second
+  </script>
 </body>
 </html>
