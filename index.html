@@ -123,6 +123,17 @@
       background-color: #ffffff;
       border-radius: 50%;
     }
+
+     #clock {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px; /* Adjust as needed */
+    }
+  </style>
+</head>
+<body onload="applyTheme()">
+  <div id="clock"></div> <!-- Add the clock here -->
   </style>
 </head>
 <body onload="applyTheme()">
@@ -450,11 +461,22 @@
     <div class="circle"></div>
   </div>
 </div>
-    </style>
+     <script>
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours().toString().padStart(2, '0');
+      var minutes = now.getMinutes().toString().padStart(2, '0');
+      var seconds = now.getSeconds().toString().padStart(2, '0');
+      var timeString = hours + ":" + minutes + ":" + seconds;
+      document.getElementById('clock').innerText = timeString;
+    }
 
+    // Update the clock every second
+    setInterval(updateClock, 1000);
 
-
-
+    // Initial call to display the clock immediately
+    updateClock();
+  </script>
 
 </body>
 </html>
