@@ -484,22 +484,25 @@
     <div class="circle"></div>
   </div>
 </div>
-     <script>
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours().toString().padStart(2, '0');
-      var minutes = now.getMinutes().toString().padStart(2, '0');
-      var seconds = now.getSeconds().toString().padStart(2, '0');
-      var timeString = hours + ":" + minutes + ":" + seconds;
-      document.getElementById('clock').innerText = timeString;
-    }
+<script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = (hours % 12) || 12; 
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    var timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
+    document.getElementById('clock').innerText = timeString;
+  }
 
-    // Update the clock every second
-    setInterval(updateClock, 1000);
+ 
+  setInterval(updateClock, 1000);
 
-    // Initial call to display the clock immediately
-    updateClock();
-  </script>
+
+  updateClock();
+</script>
+
  <script>
     // Check if the browser supports the Battery Status API
     if ('getBattery' in navigator) {
