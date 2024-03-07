@@ -445,10 +445,22 @@ footer a:hover {
     <div class="circle"></div>
   </div>
 </div>
-    </style>
+ 
 
 
-
+    <script>
+	document.getElementById("searchform").addEventListener("submit", async (event) => {
+	  	event.preventDefault();
+	  	try {
+	    		await registerSW();
+	  	} catch (err) {
+	    		alert(err.toString());
+	    		throw err;
+	  	}
+	  	const url = search(document.getElementById("searchInput").value, "https://google.com/?q=%s");
+		window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
+	});
+    </script>
 
 
 </body>
