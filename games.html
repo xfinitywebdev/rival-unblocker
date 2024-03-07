@@ -211,7 +211,7 @@ footer a:hover {
 
 
 	
-		    <button id="pButton" onclick="game1v1lol">1v1.lol</button>
+   <button id="searchButton" class="search-button">1v1.lol</button>
 
 
 
@@ -530,19 +530,18 @@ footer a:hover {
 </div>
     </style>
 
-<script>
-    function game1v1lol(){
-        event.preventDefault();
-        try {
-            await registerSW(); 
-        } catch (err) {
-            alert(err.toString());
-            throw err;
-        }
-        const url = "https://1v1.lol";
-        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-    };
-</script>
+  <script>
+    document.getElementById("searchButton").addEventListener("click", async () => {
+      try {
+        await registerSW();
+      } catch (err) {
+        alert(err.toString());
+        throw err;
+      }
+      const url = "https://1v1.lol/";
+      window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    });
+  </script>
 
 </body>
 </html>
