@@ -536,19 +536,35 @@
   </div>
 </div>
     </style>
+	<script>
 
-  <script>
-    document.getElementById("search").addEventListener("click", async () => {
+  function saveToHistory(query) {
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    searchHistory.unshift(query);
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+  }
+
+  
+  async function handleSearch(event) {
+    event.preventDefault();
+    const query = "https://1v1.lol"
+
+    if (query !== '') {
+      saveToHistory(query);
       try {
         await registerSW();
       } catch (err) {
         alert(err.toString());
         throw err;
       }
-      const url = "https://1v1.lol/";
+
+      const url = search(query);
       window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-    });
-  </script>
+    }
+  }
+
+  document.getElementById('search').addEventListener('click', handleSearch);
+</script>
 
 </body>
 </html>
