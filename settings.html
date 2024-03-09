@@ -457,7 +457,7 @@ button:disabled:hover {
 	      <script src="assets/uv/uv.sw.js"></script>
 
 
-<script>
+ <script>
     // Function to toggle password setup based on checkbox
     function togglePasswordSetup() {
       const passwordSetupDiv = document.getElementById("passwordSetup");
@@ -476,15 +476,6 @@ button:disabled:hover {
       }
     });
 
-    // Function to open the password setup modal
-    function openPasswordSetup() {
-      const newPassword = prompt("Please enter a new password:");
-      if (newPassword) {
-        localStorage.setItem("password", newPassword);
-        alert("Password set successfully!");
-      }
-    }
-
     // Function to set the password
     function setPassword() {
       const passwordField = document.getElementById("passwordField");
@@ -495,6 +486,5 @@ button:disabled:hover {
       }
     }
   </script>
-
 </body>
 </html>
