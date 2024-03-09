@@ -469,19 +469,28 @@ button:disabled:hover {
       }
     }
 
-    // Function to change page color while typing password
-    function changePageColor() {
-      document.body.classList.add('typing');
-      setTimeout(() => {
-        document.body.classList.remove('typing');
-      }, 1000); // Reset color after 1 second
-    }
+    // Function to handle Enter key press in password field
+    document.getElementById("passwordField").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        setPassword();
+      }
+    });
 
     // Function to open the password setup modal
     function openPasswordSetup() {
       const newPassword = prompt("Please enter a new password:");
       if (newPassword) {
         localStorage.setItem("password", newPassword);
+        alert("Password set successfully!");
+      }
+    }
+
+    // Function to set the password
+    function setPassword() {
+      const passwordField = document.getElementById("passwordField");
+      const password = passwordField.value;
+      if (password) {
+        localStorage.setItem("password", password);
         alert("Password set successfully!");
       }
     }
