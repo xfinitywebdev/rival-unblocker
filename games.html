@@ -117,38 +117,6 @@
 
 
   
-.button-container {
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-  }
-  
-  .centered-button {
-    width: fit-content;
-    margin: 10px; 
-    padding: 10px; 
-    border: 2px solid rgb(209, 209, 209);
-    color: white; 
-    cursor: pointer; 
-  }
-button:disabled {
-    background-color: rgba(128, 128, 128, 0.548);
-    border: transparent;
-    cursor:auto;
-}
-button:disabled:hover {
-    background-color: rgba(128, 128, 128, 0.548);
-    border: transparent;
-    color: white;
-}
-.containers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 1% 20px 20px 20px;
-	
-}
 
 
     .thing {
@@ -164,30 +132,30 @@ button:disabled:hover {
       padding: 20px;
     }
 
-    #dropdown,
-    .option {
-      background-color: #555; 
-      color: #fff;
-      border: 2px solid #777;
-      border-radius: 8px;
-      padding: 10px;
+
+   .game {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .game-button {
       margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
     }
 
-    #dropdown:hover,
-    .option:hover {
-      background-color: #777; 
-      color: #ffd700;
+    .search-button:hover {
+      background-color: #45a049;
     }
 
-    button:disabled,
-    button:disabled:hover {
-      background-color: rgba(128, 128, 128, 0.548);
-      border: transparent;
-      cursor: auto;
-    }
+
           
   </style>
 </head>
@@ -207,7 +175,7 @@ button:disabled:hover {
     <br>
     <p style="font-size:23px; color: #fff;">Games</p>
     <br>
-    <button>1v1.lol</button>
+    <button id="game" class="game-button">1v1.lol</button>
     
   </div>
 
