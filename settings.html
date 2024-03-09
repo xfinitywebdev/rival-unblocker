@@ -125,8 +125,12 @@ button:disabled:hover {
     <input type="checkbox" id="passwordEnableCheckbox" onchange="togglePasswordSetup()">
     <div id="passwordSetup" style="display: none;">
       <br>
+    <br>
       <label for="passwordField">Password:</label>
-      <input type="password" id="passwordField" oninput="changePageColor()">
+      <input type="password" id="passwordField" onkeypress="handleKeyPress(event)">
+      <button onclick="setPassword()">Set Password</button>
+    </div
+  </div
     </div>
   </div>
 	  
