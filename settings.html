@@ -15,6 +15,10 @@
 <script src="assets/js/theme.js"></script>
 
 <title>Rival Proxy</title>
+ body.typing {
+      background-color: #ff0000; /* Red color for background */
+    }
+	
 <style>
   h1 {
     margin-bottom: 0px;
@@ -115,6 +119,17 @@ button:disabled:hover {
     <a href="https://github.com/xfinitywebdev/rival-unblocker"><i class="fab fa-github"></i></a>
   </div>
   <div class="thing">
+    <br>
+    <br>
+    <p style="font-size:23px; color: #fff;">Enable Password Protection:</p>
+    <input type="checkbox" id="passwordEnableCheckbox" onchange="togglePasswordSetup()">
+    <div id="passwordSetup" style="display: none;">
+      <br>
+      <label for="passwordField">Password:</label>
+      <input type="password" id="passwordField" oninput="changePageColor()">
+    </div>
+  </div>
+	  
     <br>
     <br>
     <p style="font-size:23px; color: #fff;">Themes</p>
@@ -438,6 +453,36 @@ button:disabled:hover {
         <script src="assets/uv/index.js"></script>
 	      <script src="assets/uv/uv.sw.js"></script>
 
+
+<script>
+    // Function to toggle password setup based on checkbox
+    function togglePasswordSetup() {
+      const passwordSetupDiv = document.getElementById("passwordSetup");
+      const passwordEnableCheckbox = document.getElementById("passwordEnableCheckbox");
+      if (passwordEnableCheckbox.checked) {
+        passwordSetupDiv.style.display = "block";
+      } else {
+        passwordSetupDiv.style.display = "none";
+      }
+    }
+
+    // Function to change page color while typing password
+    function changePageColor() {
+      document.body.classList.add('typing');
+      setTimeout(() => {
+        document.body.classList.remove('typing');
+      }, 1000); // Reset color after 1 second
+    }
+
+    // Function to open the password setup modal
+    function openPasswordSetup() {
+      const newPassword = prompt("Please enter a new password:");
+      if (newPassword) {
+        localStorage.setItem("password", newPassword);
+        alert("Password set successfully!");
+      }
+    }
+  </script>
 
 </body>
 </html>
