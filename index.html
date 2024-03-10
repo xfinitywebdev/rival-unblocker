@@ -441,15 +441,14 @@ footer a:hover {
 	});
  
 
+    </script>
+
 	<script>
-    // Check if password protection is enabled
-    const passwordEnabled = localStorage.getItem("passwordEnabled");
-    if (passwordEnabled && passwordEnabled === "true") {
-      // Redirect to the password page
-      window.location.href = "password.html";
-    } else {
-      // Redirect to the proxy page if password protection is disabled
-      window.location.href = "proxy.html";
+    function checkPassword() {
+      const isPasswordEnabled = localStorage.getItem("passwordEnabled");
+      if (isPasswordEnabled === "true") {
+        window.location.href = "password.html";
+      }
     }
   </script>
 
