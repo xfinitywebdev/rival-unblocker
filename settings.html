@@ -464,8 +464,10 @@ button:disabled:hover {
       const passwordEnableCheckbox = document.getElementById("passwordEnableCheckbox");
       if (passwordEnableCheckbox.checked) {
         passwordSetupDiv.style.display = "block";
+	localStorage.setItem("passwordEnabled", true);
       } else {
         passwordSetupDiv.style.display = "none";
+	localStorage.setItem("passwordEnabled", false);
       }
     }
 
