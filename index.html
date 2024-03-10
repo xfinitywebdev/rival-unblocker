@@ -106,6 +106,8 @@ footer a:hover {
 </head>
 <body onload="applyTheme()">
 
+</head>
+<body onload="redirectToPassword()">
 
 
     <div class="content-container">
@@ -443,10 +445,12 @@ footer a:hover {
 
     </script>
 
-	<script>
-    function checkPassword() {
+	 <script>
+    function redirectToPassword() {
       const isPasswordEnabled = localStorage.getItem("passwordEnabled");
-      if (isPasswordEnabled === "true") {
+      const isPasswordSet = localStorage.getItem("password") !== null;
+      
+      if (isPasswordEnabled === "true" && isPasswordSet === "true") {
         window.location.href = "password.html";
       }
     }
