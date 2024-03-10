@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -130,105 +129,20 @@ button:disabled:hover {
       <option value="mint" class="option">Mint</option>
       <option value="sand" class="option">Sand</option>
     </select>
-  </head>
-<body onload="checkPassword()">
-<script>
-  let failedAttempts = 0;
-
-  function checkPassword() {
-    const storedPassword = localStorage.getItem("password");
-    const passwordEnabled = localStorage.getItem("passwordEnabled");
-
-    // Check if password is enabled
-    if (passwordEnabled === "true") {
-      // Check if password is set
-      if (!storedPassword) {
-        // Redirect to password.html to set password
-        window.location.href = "password.html";
-        return;
-      }
-
-      // Prompt for password
-      const enteredPassword = prompt("Please enter your password:");
-
-      if (storedPassword === enteredPassword) {
-        // Password is correct, proceed
-        return;
-      } else {
-        // Password is incorrect, increment failedAttempts
-        failedAttempts++;
-
-        // Show forgot password option after 3 failed attempts
-        if (failedAttempts >= 3) {
-          window.location.href = "password.html";
-        } else {
-          alert("Incorrect password. Please try again.");
-          // Reload the page to prompt for password again
-          location.reload();
-        }
-      }
-    }
-  }
-
-  // Function to toggle password setup based on checkbox
-  function togglePasswordSetup() {
-    const passwordSetupDiv = document.getElementById("passwordSetup");
-    const passwordEnableCheckbox = document.getElementById("passwordEnableCheckbox");
-    if (passwordEnableCheckbox.checked) {
-      passwordSetupDiv.style.display = "block";
-      localStorage.setItem("passwordEnabled", true);
-    } else {
-      passwordSetupDiv.style.display = "none";
-      localStorage.setItem("passwordEnabled", false);
-    }
-  }
-
-  // Function to handle Enter key press in password field
-  document.getElementById("passwordField").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      setPassword();
-    }
-  });
-
-  // Function to set the password
-  function setPassword() {
-    const passwordField = document.getElementById("passwordField");
-    const password = passwordField.value;
-    if (password) {
-      localStorage.setItem("password", password);
-      alert("Password set successfully!");
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedState = localStorage.getItem("passwordEnabled");
-
-    if (savedState === "true") {
-      document.getElementById("passwordEnableCheckbox").checked = true;
-      togglePasswordSetup();
-    }
-  });
-</script>
-
-<h1>Settings</h1>
-
-<div class="sidebar">
-  <!-- Your sidebar content -->
-</div>
-
-<div class="thing">
-  <br>
-  <br>
-  <p style="font-size:23px; color: #fff;">Enable Password Protection</p>
-  <br>
-  <input type="checkbox" id="passwordEnableCheckbox" onchange="togglePasswordSetup()">
-  <div id="passwordSetup" style="display: none;">
-    <br>
-    <label for="passwordField">Password:</label>
-    <input type="password" id="passwordField" onkeypress="handleKeyPress(event)">
-    <button onclick="setPassword()">Set Password</button>
   </div>
-</div>
+  <div class="thing">
+    <br>
+    <br>
+    <p style="font-size:23px; color: #fff;">Enable Password Protection</p>
+	<br>
+    <input type="checkbox" id="passwordEnableCheckbox" onchange="togglePasswordSetup()">
+    <div id="passwordSetup" style="display: none;">
+    	<br>
+      <label for="passwordField">Password:</label>
+      <input type="password" id="passwordField" onkeypress="handleKeyPress(event)">
+      <button onclick="setPassword()">Set Password</button>
+    </div>
+  </div>
   
 
   
