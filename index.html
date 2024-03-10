@@ -445,14 +445,11 @@ footer a:hover {
 
     </script>
 
-	 <script>
-    function redirectToPassword() {
-      const isPasswordEnabled = localStorage.getItem("passwordEnabled");
-      const isPasswordSet = localStorage.getItem("password") !== null;
-      
-      if (isPasswordEnabled === "true" && isPasswordSet === "true") {
-        window.location.href = "password.html";
-      }
+ <script>
+  
+    const passwordEnabled = localStorage.getItem("passwordEnabled");
+    if (passwordEnabled && passwordEnabled === "true") {
+      window.location.href = "password.html";
     }
   </script>
 
