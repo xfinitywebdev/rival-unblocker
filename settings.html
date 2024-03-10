@@ -487,6 +487,15 @@ button:disabled:hover {
         alert("Password set successfully!");
       }
     }
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedState = localStorage.getItem("passwordEnabled");
+
+    if (savedState === "true") {
+      document.getElementById("passwordEnableCheckbox").checked = true;
+      togglePasswordSetup();
+    }
+  });
+
   </script>
 </body>
 </html>
