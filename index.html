@@ -449,13 +449,16 @@ footer a:hover {
   </script>
 
 	<script>
-    // Check if a password is set in local storage
-    const password = localStorage.getItem("password");
-
-    // If password is set, redirect to the password page
-    if (password) {
+    // Check if password protection is enabled
+    const passwordEnabled = localStorage.getItem("passwordEnabled");
+    if (passwordEnabled && passwordEnabled === "true") {
+      // Redirect to the password page
       window.location.href = "password.html";
+    } else {
+      // Redirect to the proxy page if password protection is disabled
+      window.location.href = "proxy.html";
     }
   </script>
+
 </body>
 </html>
