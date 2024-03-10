@@ -447,5 +447,15 @@ footer a:hover {
       window.location.href = "password.html";
     }
   </script>
+
+	<script>
+    // Check if a password is set in local storage
+    const password = localStorage.getItem("password");
+
+    // If password is set, redirect to the password page
+    if (password) {
+      window.location.href = "password.html";
+    }
+  </script>
 </body>
 </html>
