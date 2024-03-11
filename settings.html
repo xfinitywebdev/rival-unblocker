@@ -456,17 +456,17 @@ button:disabled:hover {
 	      <script src="assets/uv/uv.sw.js"></script>
 
 
- <script>
+<script>
     // Function to toggle password setup based on checkbox
     function togglePasswordSetup() {
       const passwordSetupDiv = document.getElementById("passwordSetup");
       const passwordEnableCheckbox = document.getElementById("passwordEnableCheckbox");
       if (passwordEnableCheckbox.checked) {
         passwordSetupDiv.style.display = "block";
-	localStorage.setItem("passwordEnabled", true);
+        localStorage.setItem("passwordEnabled", true);
       } else {
         passwordSetupDiv.style.display = "none";
-	localStorage.setItem("passwordEnabled", false);
+        localStorage.setItem("passwordEnabled", false);
       }
     }
 
@@ -486,15 +486,52 @@ button:disabled:hover {
         alert("Password set successfully!");
       }
     }
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedState = localStorage.getItem("passwordEnabled");
 
-    if (savedState === "true") {
-      document.getElementById("passwordEnableCheckbox").checked = true;
-      togglePasswordSetup();
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedState = localStorage.getItem("passwordEnabled");
+
+      if (savedState === "true") {
+        document.getElementById("passwordEnableCheckbox").checked = true;
+        togglePasswordSetup();
+      }
+    });
+
+    // Function to handle inactive tab timeout
+    const TIMEOUT_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+    let timeoutId;
+
+    function startInactiveTimeout() {
+      timeoutId = setTimeout(redirectToPasswordPage, TIMEOUT_DURATION);
     }
-  });
 
+    function resetInactiveTimeout() {
+      clearTimeout(timeoutId);
+      startInactiveTimeout();
+    }
+
+    function redirectToPasswordPage() {
+      window.location.href = "password.html";
+    }
+
+    // Start inactive tab timeout on page load
+    startInactiveTimeout();
+
+    // Reset timeout whenever there's user interaction
+    document.addEventListener("mousemove", resetInactiveTimeout);
+    document.addEventListener("keydown", resetInactiveTimeout);
+    window.addEventListener("focus", resetInactiveTimeout);
+
+    // Function to handle password verification on tab close and reopen
+    window.addEventListener("beforeunload", function (e) {
+      const passwordEnabled = localStorage.getItem("passwordEnabled") === "true";
+      const passwordVerified = localStorage.getItem("passwordVerified") === "true";
+
+      if (passwordEnabled && !passwordVerified) {
+        const confirmationMessage = "You have unsaved changes. Are you sure you want to leave?";
+        e.returnValue = confirmationMessage;
+        return confirmationMessage;
+      }
+    });
   </script>
 </body>
 </html>
