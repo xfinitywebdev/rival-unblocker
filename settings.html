@@ -456,7 +456,9 @@ button:disabled:hover {
 	      <script src="assets/uv/uv.sw.js"></script>
 
 
-<script>
+
+
+   <script>
     // Function to toggle password setup based on checkbox
     function togglePasswordSetup() {
       const passwordSetupDiv = document.getElementById("passwordSetup");
@@ -483,6 +485,7 @@ button:disabled:hover {
       const password = passwordField.value;
       if (password) {
         localStorage.setItem("password", password);
+        localStorage.setItem("passwordVerified", true);
         alert("Password set successfully!");
       }
     }
@@ -493,6 +496,14 @@ button:disabled:hover {
       if (savedState === "true") {
         document.getElementById("passwordEnableCheckbox").checked = true;
         togglePasswordSetup();
+      }
+
+      // Redirect to password page if password protection enabled but not verified
+      const passwordEnabled = localStorage.getItem("passwordEnabled") === "true";
+      const passwordVerified = localStorage.getItem("passwordVerified") === "true";
+
+      if (passwordEnabled && !passwordVerified) {
+        window.location.href = "password.html";
       }
     });
 
@@ -510,7 +521,12 @@ button:disabled:hover {
     }
 
     function redirectToPasswordPage() {
-      window.location.href = "password.html";
+      const passwordEnabled = localStorage.getItem("passwordEnabled") === "true";
+      const passwordVerified = localStorage.getItem("passwordVerified") === "true";
+
+      if (passwordEnabled && !passwordVerified) {
+        window.location.href = "password.html";
+      }
     }
 
     // Start inactive tab timeout on page load
